@@ -1,0 +1,10 @@
+[Unit]
+Description=Container watchdog sweep (checks every container, alerts + auto-restart)
+After=docker.service
+Requires=docker.service
+
+[Service]
+Type=oneshot
+Environment=WATCHDOG_CONF=/opt/docker-stack/watchdog/watchdog.conf
+ExecStart=/opt/docker-stack/watchdog/container-watchdog.sh sweep
+TimeoutStartSec=120

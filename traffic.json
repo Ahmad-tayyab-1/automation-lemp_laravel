@@ -1,0 +1,21 @@
+{
+  "low": {
+    "pm": "ondemand",
+    "max_children": 5,
+    "idle_timeout": "10s"
+  },
+  "medium": {
+    "pm": "dynamic",
+    "max_children": 10,
+    "start_servers": 3,
+    "min_spare": 2,
+    "max_spare": 5
+  },
+  "high": {
+    "pm": "dynamic",
+    "max_children": 20,
+    "start_servers": 5,
+    "min_spare": 3,
+    "max_spare": 8
+  }
+}

@@ -1,0 +1,14 @@
+[Unit]
+Description=Container watchdog event listener (instant alerts + auto-restart)
+After=docker.service
+Requires=docker.service
+
+[Service]
+Type=simple
+Environment=WATCHDOG_CONF=/opt/docker-stack/watchdog/watchdog.conf
+ExecStart=/opt/docker-stack/watchdog/container-watchdog.sh events
+Restart=always
+RestartSec=10s
+
+[Install]
+WantedBy=multi-user.target
